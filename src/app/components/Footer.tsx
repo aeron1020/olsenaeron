@@ -10,15 +10,9 @@ export default function Footer() {
         </span>
       </div>
 
-      <div className="flex gap-8">
-        <p className="text-[10px] text-zinc-600 font-mono uppercase tracking-[0.2em]">
-          Designed for high performance
-        </p>
-      </div>
+     
       
-      <div className="text-[10px] text-zinc-600 font-mono uppercase tracking-[0.2em]">
-        14.5445° N, 120.5917° E
-      </div>
+   
     </footer>
   );
 }
