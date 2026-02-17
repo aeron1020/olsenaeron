@@ -66,7 +66,7 @@ export default function ProjectGrid() {
                   src={p.image} 
                   alt={p.title}
                   loading="lazy"
-                  className="absolute right-0 w-full md:w-3/4 h-full object-cover transition-all duration-700 brightness-[0.55] md:brightness-[0.65] grayscale group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105"
+                  className="absolute right-0 w-full md:w-3/4 h-full object-cover transition-all duration-700 brightness-[0.55] md:brightness-[0.90]  group-hover:brightness-100 group-hover:scale-105"
                   style={{
                     maskImage: 'linear-gradient(to left, rgb(0, 0, 0) 10%, transparent 100%)',
                     WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,1) 10%, transparent 100%)'
