@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colors - High Contrast Minimalist */
+  --color-background: #0f0f0f;
+  --color-foreground: #ffffff;
+  --color-accent: #60a5fa;
+  --color-card: rgba(15, 15, 15, 0.4);
+  --color-border: rgba(255, 255, 255, 0.06);
+  
+  /* Utilities */
+  --radius-bento: 2rem;
+  --font-mono: "Geist Mono", "JetBrains Mono", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    cursor: auto; 
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    selection-background: var(--color-accent);
+    selection-color: white;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Typography: Minimal & Sharp */
+  h1, h2, h3, h4 {
+    @apply tracking-tighter font-semibold;
+  }
+
+  a {
+    @apply transition-all duration-300;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* The "Fancy" Glass card with deep lift */
+  .glass-card {
+    @apply bg-card backdrop-blur-3xl border border-border rounded-bento shadow-2xl;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+
+  .glass-card:hover {
+    @apply border-white/10 bg-white/[0.03];
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(96, 165, 250, 0.05);
+  }
+
+  /* Silver text effect for Heroes */
+  .text-silver {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-white/40;
+  }
+
+  /* Label styling */
+  .label-mono {
+    @apply font-mono text-[10px] tracking-[0.3em] uppercase text-zinc-500;
+  }
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { 
+  @apply bg-zinc-800 rounded-full hover:bg-accent; 
+}
+
+.no-scroll {
+  overflow: hidden;
 }
